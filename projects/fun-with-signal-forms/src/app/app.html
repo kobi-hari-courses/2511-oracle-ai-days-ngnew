@@ -1,28 +1,22 @@
 <div class="form">
   <h1>Fun With Signal Forms</h1>
-  <div class="field">
-    <label>Username</label>
-    <input type="text" [field]="dinnerForm.username"/>
-    @if(dinnerForm.username().invalid()) {
-      @for(err of dinnerForm.username().errors(); track err) {
-        <div class="error">{{ err.message }}</div>
-      }
-    }
-  </div>
-  <div class="field">
-    <label>Rating</label>
-    <app-star-rating [field]="dinnerForm.rating"/>
-        @if(dinnerForm.rating().invalid()) {
-      @for(err of dinnerForm.rating().errors(); track err) {
-        <div class="error">{{ err.message }}</div>
-      }
-    }
+  <app-field>
+    <input type="text" [field]="dinnerForm.username" />
+  </app-field>
+  <app-field>
+    <input type="checkbox" [field]="dinnerForm.isVip" />
+  </app-field>
+  <app-field>
+    <app-star-rating [field]="dinnerForm.rating" />
+  </app-field>
+  <app-field>
+    <textarea rows="5" [field]="dinnerForm.description"></textarea>
+  </app-field>
 
+  <div class="form-value">
+    <pre
+      >{{ model() | json }}
+  </pre
+    >
   </div>
-</div>
-
-<div class="form-value">
-  <pre>
-{{ model() | json }}
-  </pre>
 </div>

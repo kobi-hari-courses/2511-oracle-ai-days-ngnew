@@ -1,0 +1,8 @@
+<label>{{displayedLabel()}}</label>
+<ng-content></ng-content>
+@if(wordsCount()) {
+    <div class="info">Words: {{ wordsCount() }}</div>
+}
+@for(err of errors(); track err) {
+  <div class="error">{{ err.message }}</div>
+}

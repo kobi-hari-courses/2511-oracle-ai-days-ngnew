@@ -12,6 +12,5 @@ import { StateService } from '../../services/state-service';
 export class BooksList {
   readonly state = inject(StateService);
   readonly booksRes = this.state.searchResult;
-  readonly selectedBookId = signal<string>('27eec969-1138-43c3-9e11-fe92cda1e892');
 
 }

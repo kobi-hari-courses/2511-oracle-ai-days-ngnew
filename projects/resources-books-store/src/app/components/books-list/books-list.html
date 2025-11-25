@@ -1,9 +1,14 @@
+@if(booksRes.isLoading()) {
+  <app-busy></app-busy>
+}
+
+@if(booksRes.hasValue()) {
 <div class="scrollable">
-  @for(b of books(); track b.id) {
+  @for(b of booksRes.value(); track b.id) {
   <div
     class="book-entry"
-    [class.selected]="b.id === selectedBookId()"
-    (click)="selectedBookId.set(b.id)"
+    [class.selected]="b.id === state.selectedBookId()"
+    (click)="state.setSelectedBookId(b.id)"
   >
     <svg
       class="book-icon"
@@ -51,4 +56,7 @@
   </div>
   }
 </div>
+
+}
+
 

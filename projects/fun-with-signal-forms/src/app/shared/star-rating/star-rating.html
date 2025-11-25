@@ -1,0 +1,9 @@
+@for(i of stars(); track i) {
+    <span class="material-icons" (click)="value.set(i)">
+        @if(i <= value()) {
+            star
+        } @else {
+            star_outline
+        }
+    </span>
+}

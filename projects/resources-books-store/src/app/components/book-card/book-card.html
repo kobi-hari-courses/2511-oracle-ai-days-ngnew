@@ -1,12 +1,21 @@
+@if(bookRes.isLoading()) {
+  <app-busy/>
+}
+
+@if(bookRes.hasValue()) {
+  @let book = bookRes.value();
+
 <div class="book-card">
   <div class="book-header">
-    <h2 class="book-title">{{ book().title }}</h2>
-    <span class="book-author">by {{ book().author }}</span>
+    <h2 class="book-title">{{ book!.title }}</h2>
+    <span class="book-author">by {{ book!.author }}</span>
   </div>
-  <div class="book-description">{{ book().description }}</div>
+  <div class="book-description">{{ book!.description }}</div>
 
-  <div class="book-stock" [style.--stock]="stock()">
+  <div class="book-stock" [style.--stock]="stockRes.value()">
     <span class="stock-label">Stock:</span>
-    <span class="stock-quantity">{{ stock() }}</span>
+    <span class="stock-quantity">{{ stockRes.value() }}</span>
   </div>
 </div>
+}
+
